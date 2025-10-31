@@ -8157,6 +8157,8 @@ def create_address(**args):
 		address.save()
 
 		return address
+	else:
+		return frappe.get_doc("Address", args.get("name"))
 
 
 def get_months(doc):
