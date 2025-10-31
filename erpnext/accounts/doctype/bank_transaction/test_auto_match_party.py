@@ -142,6 +142,7 @@ def create_bank_transaction(
 			"bank_party_name": party_name,
 			"bank_party_account_number": account_no,
 			"bank_party_iban": iban,
+			"reference_number":transaction_id
 		}
 	)
 	doc.insert()
