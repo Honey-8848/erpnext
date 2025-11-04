@@ -137,6 +137,16 @@ class TestCouponCode(unittest.TestCase):
 		self.assertEqual(so.items[0].rate, 5000)
 
 		so.coupon_code = "SAVE30"
+		if not frappe.db.exists("Sales Partner", "_Test Coupon Partner"):
+			sales_partner = frappe.get_doc(
+				{
+					"doctype": "Sales Partner",
+					"partner_name": "_Test Coupon Partner",
+					"commission_rate": 2,
+					"referral_code": "COPART",
+				}
+			)
+			sales_partner.insert()
 		so.sales_partner = "_Test Coupon Partner"
 		so.save()
 
